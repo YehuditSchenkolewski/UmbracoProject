@@ -1,4 +1,5 @@
 using MyProject.Interfaces;
+using MyProject.Routes;
 using MyProject.Services;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
@@ -19,6 +20,7 @@ WebApplication app = builder.Build();
 
 await app.BootUmbracoAsync();
 
+app.MapMangUserRoutes();
 
 app.UseUmbraco()                                                    
     .WithMiddleware(u =>

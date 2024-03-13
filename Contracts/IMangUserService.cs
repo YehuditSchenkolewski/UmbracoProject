@@ -2,6 +2,6 @@
 {
     public interface IMangUserService
     {
-        public bool resaetPassword();
+        Task<bool> ResaetPassword(string mail, string password);
     }
 }

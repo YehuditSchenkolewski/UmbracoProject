@@ -7,10 +7,10 @@ namespace MyProject.Services
 {
     public class MangUserService(IUserService _userService, IPasswordHasher _passwordHasher) : IMangUserService
     {
-        public bool resaetPassword()
+        public async Task<bool> ResaetPassword(string mail, string password)
         {
-            var a = _userService.GetByEmail("yehudits@matrix.co.il");
-            var pass = _passwordHasher.HashPassword("123456");
+            var a = _userService.GetByEmail(mail);
+            var pass = _passwordHasher.HashPassword(password);            
             a.RawPasswordValue = pass;
             _userService.Save(a);
 
